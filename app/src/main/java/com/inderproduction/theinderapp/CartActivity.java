@@ -46,6 +46,7 @@ public class CartActivity extends AppCompatActivity implements CartListAdapter.O
         btnCheckout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                try{
                 if(OneApplication.cart.size() >0){
                     Intent proceedCheckout;
                     if(FirebaseAuth.getInstance().getCurrentUser() != null){
@@ -59,6 +60,11 @@ public class CartActivity extends AppCompatActivity implements CartListAdapter.O
                     DisplayUtils.showToast(CartActivity.this,"No Items in Cart", Toast.LENGTH_SHORT);
                 }
             }
+                catch (Exception e){
+                    Log.e("expp",e.toString());
+                }
+            }
+
         });
 
     }
