@@ -108,5 +108,16 @@ public class Signup extends AppCompatActivity {
                 }
             }
         });
+
+        alreadyUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent skipLoginIntent = new Intent(Signup.this, LoginActivity.class);
+                startActivity(skipLoginIntent);
+                finish();
+            }
+        });
+
     }
 }

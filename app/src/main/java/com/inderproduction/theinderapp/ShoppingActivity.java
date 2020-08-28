@@ -59,7 +59,7 @@ public class ShoppingActivity extends AppCompatActivity implements CompoundButto
 
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("The Inder App");
+            getSupportActionBar().setTitle("Fashion Hub");
         }
 
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());

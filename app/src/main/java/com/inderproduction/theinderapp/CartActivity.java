@@ -108,6 +108,6 @@ public class CartActivity extends AppCompatActivity implements CartListAdapter.O
         OneApplication.finalOrder.setOrderBaseTotal(totalPrice);
         OneApplication.finalOrder.setOrderTax(tax);
         OneApplication.finalOrder.setOrderGrandTotal(totalPrice + tax);
-        cartPriceTotal.setText("Total Price : "+String.valueOf(totalPrice).concat(" INR"));
+        cartPriceTotal.setText("Total Price : CAN "+String.valueOf(totalPrice).concat(" "));
     }
 }

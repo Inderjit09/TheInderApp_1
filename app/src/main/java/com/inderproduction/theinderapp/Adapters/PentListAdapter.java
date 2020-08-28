@@ -59,7 +59,7 @@ public class PentListAdapter extends RecyclerView.Adapter<PentListAdapter.PentVi
             Picasso.get().load(Uri.parse(j.getProductImage())).fit().into(holder.pentImage);
 
             holder.pentName.setText(j.getItemName());
-            holder.pentRsTag.setText("Rs.");
+            holder.pentRsTag.setText("CAN ");
             holder.pentPrice.setText(String.valueOf(j.getItemPrice()));
 
             int dis=j.getDiscount();

@@ -70,7 +70,7 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.CartVi
         holder.cartItemName.setText(o.getItemName());
         holder.cartItemColor.setText(o.getItemColor());
         double newPrice = o.getItemPrice() - ((double)o.getItemDiscount()/100 * o.getItemPrice());
-        holder.cartItemPrice.setText("Rs "+newPrice+" x "+o.getItemCount());
+        holder.cartItemPrice.setText("CAN "+newPrice+" x "+o.getItemCount());
         holder.cartItemSize.setText("Size: "+o.getItemSize());
         holder.cartItemBrand.setText(o.getItemBrand());
         String fileName = o.getItemID() + "_"+o.getItemColor().toUpperCase()+"_1.jpg";

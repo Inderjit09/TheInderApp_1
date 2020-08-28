@@ -111,6 +111,8 @@ public class UserProfileActivity extends AppCompatActivity {
             profileReference = firebaseFirestore.collection("profiles").document(auth.getUid());
         }
 
+
+
         ll_paypal = findViewById(R.id.ll_paypal);
         profileName = findViewById(R.id.profile_fname);
         profilePhone = findViewById(R.id.profile_phone);
@@ -235,6 +237,8 @@ public class UserProfileActivity extends AppCompatActivity {
                         if (profile == null) {
                             data.put("encrypted", false);
                         }
+
+
                         profileReference.set(data).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {

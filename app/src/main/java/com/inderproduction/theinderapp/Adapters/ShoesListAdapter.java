@@ -62,7 +62,7 @@ public class ShoesListAdapter extends RecyclerView.Adapter<ShoesListAdapter.Shoe
             Picasso.get().load(Uri.parse(s.getProductImage())).fit().into(holder.shoeImage);
 
             holder.shoeName.setText(s.getItemName());
-            holder.shoeRsTag.setText("Rs.");
+            holder.shoeRsTag.setText("CAN ");
             holder.shoePrice.setText(String.valueOf(s.getItemPrice()));
 
             int dis=s.getDiscount();

@@ -149,10 +149,10 @@ public class ProductDetail extends AppCompatActivity {
         int dis = item.getDiscount();
         if (dis > 0) {
             detailProductDiscount.setText(String.valueOf(item.getDiscount()) + "% off");
-            detailFinalProductPrice.setText("Rs." + String.valueOf(item.getItemPrice() - ((double) item.getDiscount() / 100 * item.getItemPrice())));
+            detailFinalProductPrice.setText("CAN " + String.valueOf(item.getItemPrice() - ((double) item.getDiscount() / 100 * item.getItemPrice())));
             detailProductPrice.setPaintFlags(detailProductPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         } else {
-            detailFinalProductPrice.setText("Rs." + String.valueOf(item.getItemPrice()));
+            detailFinalProductPrice.setText("CAN " + String.valueOf(item.getItemPrice()));
             detailProductPrice.setText("");
             detailProductDiscount.setText("");
         }
@@ -192,10 +192,10 @@ public class ProductDetail extends AppCompatActivity {
         int dis = item.getDiscount();
         if (dis > 0) {
             detailProductDiscount.setText(String.valueOf(item.getDiscount()) + "% off");
-            detailFinalProductPrice.setText("Rs." + String.valueOf(item.getItemPrice() - ((double) item.getDiscount() / 100 * item.getItemPrice())));
+            detailFinalProductPrice.setText("CAN " + String.valueOf(item.getItemPrice() - ((double) item.getDiscount() / 100 * item.getItemPrice())));
             detailProductPrice.setPaintFlags(detailProductPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         } else {
-            detailFinalProductPrice.setText("Rs." + String.valueOf(item.getItemPrice()));
+            detailFinalProductPrice.setText("CAN " + String.valueOf(item.getItemPrice()));
             detailProductPrice.setText("");
             detailProductDiscount.setText("");
         }
@@ -229,10 +229,10 @@ public class ProductDetail extends AppCompatActivity {
         int dis = item.getDiscount();
         if (dis > 0) {
             detailProductDiscount.setText(String.valueOf(item.getDiscount()) + "% off");
-            detailFinalProductPrice.setText("Rs." + String.valueOf(item.getItemPrice() - ((double) item.getDiscount() / 100 * item.getItemPrice())));
+            detailFinalProductPrice.setText("CAN " + String.valueOf(item.getItemPrice() - ((double) item.getDiscount() / 100 * item.getItemPrice())));
             detailProductPrice.setPaintFlags(detailProductPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         } else {
-            detailFinalProductPrice.setText("Rs." + String.valueOf(item.getItemPrice()));
+            detailFinalProductPrice.setText("CAN " + String.valueOf(item.getItemPrice()));
             detailProductPrice.setText("");
             detailProductDiscount.setText("");
         }
@@ -281,11 +281,11 @@ public class ProductDetail extends AppCompatActivity {
 
     private void addDynamicFields(String shoeType, String soleType) {
 
-        String[] headings= {"Shoe Type","Sole Type"};
-        String[] contents= {shoeType,soleType};
+        String[] headings = {"Shoe Type", "Sole Type"};
+        String[] contents = {shoeType, soleType};
 
 
-        for(int x =0;x<headings.length;x++){
+        for (int x = 0; x < headings.length; x++) {
             //HOLDER TEXTVIEW
             LinearLayout shoeTypeLayout = new LinearLayout(this);
             LinearLayout.LayoutParams STparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -295,7 +295,7 @@ public class ProductDetail extends AppCompatActivity {
             TextView heading = new TextView(this);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(width / 2, LinearLayout.LayoutParams.WRAP_CONTENT);
             heading.setLayoutParams(params);
-            heading.setText(headings[x]+" ");
+            heading.setText(headings[x] + " ");
             heading.setTextSize(20.0f);
             //CONTENT TEXVIEW
             TextView content = new TextView(this);
@@ -320,33 +320,34 @@ public class ProductDetail extends AppCompatActivity {
     }
 
     private void addColors(final List<String> colors, final List<Integer> images) throws JSONException {
-        for (final String c : colors) {
-            if (currentOrderItem.getItemColor() == null) {
-                currentOrderItem.setItemColor(c);
-            }
-            TextView tv3 = new TextView(this);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(50, 50);
-            params.setMargins(10, 10, 10, 10);
-            tv3.setGravity(Gravity.CENTER);
-            if (OneApplication.APPLICATION_COLORS != null) {
-                tv3.setBackgroundColor(Color.parseColor(OneApplication.APPLICATION_COLORS.getString(c)));
-            } else {
-                tv3.setBackgroundColor(Color.BLACK);
-            }
-            tv3.setLayoutParams(params);
-            tv3.setTextSize(14.0f);
-            tv3.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    colorIndex = colors.indexOf(c);
+        if (colors != null && colors.size() > 0)
+            for (final String c : colors) {
+                if (currentOrderItem.getItemColor() == null) {
                     currentOrderItem.setItemColor(c);
-                    addImages(SELECTED_ID, c, colorIndex, images);
-
-
                 }
-            });
-            colorHolder.addView(tv3);
-        }
+                TextView tv3 = new TextView(this);
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(50, 50);
+                params.setMargins(10, 10, 10, 10);
+                tv3.setGravity(Gravity.CENTER);
+                if (OneApplication.APPLICATION_COLORS != null) {
+                    tv3.setBackgroundColor(Color.parseColor(OneApplication.APPLICATION_COLORS.getString(c)));
+                } else {
+                    tv3.setBackgroundColor(Color.BLACK);
+                }
+                tv3.setLayoutParams(params);
+                tv3.setTextSize(14.0f);
+                tv3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        colorIndex = colors.indexOf(c);
+                        currentOrderItem.setItemColor(c);
+                        addImages(SELECTED_ID, c, colorIndex, images);
+
+
+                    }
+                });
+                colorHolder.addView(tv3);
+            }
     }
 
     private void addImages(String productID, String color, int index, List<Integer> colorCount) {
